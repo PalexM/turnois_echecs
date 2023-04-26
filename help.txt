@@ -1,0 +1,32 @@
+__init__(): Este utilizată pentru a inițializa obiectul în momentul creării sale. 
+            Această metodă este apelată automat când se creează un nou obiect și se poate utiliza pentru a inițializa atributele obiectului sau pentru a efectua alte operații necesare la crearea obiectului.
+
+
+
+__str__(): Este utilizată pentru a returna o reprezentare în format text a obiectului.
+            Această metodă este apelată automat atunci când se încearcă să se afișeze obiectul utilizând funcția print() sau atunci când se converteste obiectul la șir de caractere utilizând funcția str().
+
+
+
+__repr__(): Este utilizată pentru a returna o reprezentare în format text a obiectului care poate fi utilizată pentru a re-crea obiectul.
+            Această metodă este apelată automat atunci când se încearcă să se afișeze obiectul utilizând funcția repr().
+
+
+
+__getattr__(): Este utilizată pentru a gestiona încercările de a accesa un atribut care nu există în obiect. 
+                Această metodă este apelată automat atunci când se încearcă să se acceseze un atribut inexistent.
+
+
+
+__setattr__(): Este utilizată pentru a gestiona atribuirea valorilor la atributele obiectului. 
+                Această metodă este apelată automat atunci când se încearcă să se atribuie o valoare la un atribut al obiectului.
+
+
+
+__delattr__(): Este utilizată pentru a gestiona ștergerea unui atribut din obiect. 
+                Această metodă este apelată automat atunci când se încearcă să se șteargă un atribut din obiect utilizând instrucțiunea del.
+
+
+
+__getattribute__(): Este utilizată pentru a gestiona accesul la atributele obiectului.
+             Această metodă este apelată automat atunci când se încearcă să se acceseze un atribut al obiectului.
