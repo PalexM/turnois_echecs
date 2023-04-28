@@ -2,6 +2,9 @@ import os
 import json
 import os
 
+# from ..Vue.Vues import Vues
+# # nom dossir , nom de fichier, nom de la classe
+
 
 class Joueurs:
     """Class Joueurs, Methodes principales: Ajouter un nouveau joueur, Récupérer les informations d'un joueur, Mettre à jour les informations d'un joueur"""
@@ -85,13 +88,14 @@ class Joueurs:
         Joueurs._write_json_file(data)
 
 
-# Exemple d'utilisation de la classe Joueurs
-player = Joueurs("Pop", "Alexandru", "08/11/1991", "AB5454ada")
+if __name__ == "__main__":
+    # Exemple d'utilisation de la classe Joueurs
+    player = Joueurs("Pop", "Alexandru", "08/11/1991", "AB5454ada")
 
-update_inf = {
-    "Nom": "Alexandru",
-    "Prenom": "Pop",
-    "Date naissance": "08/11/1991",
-    "ID": "AB5454a",
-}
-player.add_player()
+    update_inf = {
+        "Nom": "Alexandru",
+        "Prenom": "Pop",
+        "Date naissance": "08/11/1991",
+        "ID": "AB5454a",
+    }
+    player.add_player()

@@ -8,36 +8,25 @@ class Tournois:
 
     # Obtention du chemin relatif vers le répertoire "Data"
     data_folder = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), os.pardir, "Data/Tournois")
+        os.path.join(os.path.dirname(__file__), os.pardir, "Data")
     )
+    file_path = os.path.join(data_folder, "Tournois.json")
 
     @classmethod
-    def _create_json_file(cls, name, data):
-        file_path = os.path.join(cls.data_folder, name + ".json")
-        # Verifier si un turnois existe deja
-        if os.path.exists(file_path):
-            raise ValueError("Un tournois existe deja avec ce nom")
-        # Creer le fichier et ecrire les donnees
-        with open(file_path, "w", encoding="utf-8") as json_file:
-            json.dump(data, json_file, ensure_ascii=False, indent=4)
-
-    @classmethod
-    def _get_json_file(cls, file_name):
+    def _get_json_file(cls):
         """Recuperation du contenu du fichier json"""
-        file_path = os.path.join(cls.data_folder, file_name + ".json")
         # Vérification si le fichier n'est pas vide
-        if os.path.getsize(file_path) > 0:
-            with open(file_path, "r", encoding="utf-8") as json_data:
+        if os.path.getsize(cls.file_path) > 0:
+            with open(cls.file_path, "r", encoding="utf-8") as json_data:
                 # Charger les données existantes
                 return json.load(json_data)
         else:
             return []
 
     @classmethod
-    def _write_json_file(cls, file_name, data):
+    def _write_json_file(cls, data):
         """Ecrire les donnees dans le fichier JSON"""
-        file_path = os.path.join(cls.data_folder, file_name + ".json")
-        with open(file_path, "w", encoding="utf-8") as json_file:
+        with open(cls.file_path, "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 
     def __init__(
@@ -72,12 +61,24 @@ class Tournois:
             "Informations turnois": self.infos_turnament,
         }
 
-        data_file_name = re.sub(r"[^a-zA-Z0-9]", "", self.name)
-        Tournois._create_json_file(data_file_name, turnois)
+        data = Tournois._get_json_file()
+
+        # Vérification des doublons
+        if any(
+            re.sub(r"[^a-zA-Z0-9]", "", el.get("Nom").lower())
+            == re.sub(r"[^a-zA-Z0-9]", "", turnois["Nom"].lower())
+            for el in data
+        ):
+            raise ValueError("Un Tournois existe deja avec ce nom!")
+        else:
+            data.append(turnois)
+
+        # Écrire les données dans le fichier JSON
+        Tournois._write_json_file(data)
 
     def get_turnament(self, turnament_name):
         """Récupérer les informations d'un tournois, returne le turnois ou KeyError exception"""
-        data = Tournois._get_json_file(turnament_name)
+        data = Tournois._get_json_file()
 
         for el in data:
             # Parcourir la liste des éléments et vérifier si l'ID correspond
@@ -90,7 +91,7 @@ class Tournois:
 
     def update_turnament(self, turnament_name, turnament_data):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
-        data = Tournois._get_json_file(turnament_name)
+        data = Tournois._get_json_file()
 
         for i, element in enumerate(data):
             # Parcourir la liste des éléments et vérifier si l'ID correspond
@@ -108,7 +109,7 @@ class Tournois:
 
 
 my_tournament = Tournois(
-    name="Paris 2023",
+    name="tournois1",
     place="Paris",
     start_date="2023-05-01",
     end_date="2023-05-08",
@@ -127,7 +128,7 @@ my_tournament = Tournois(
         "Nulla": "Nulla eu tellus efficitur.",
     },
 )
-my_tournament.add_turnament()
+my_tournament._get_json_file()
 # my_tournament.add_turnament()
 
 # print(my_tournament.get_turnament("tournois1"))
