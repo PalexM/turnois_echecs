@@ -2,54 +2,106 @@ import random
 
 
 class Tournois:
-    def __init__(self, tournament_name, round, players):
-        self.tournament_name = tournament_name
-        self.round = round
+    def __init__(self, name, players):
+        self.tournament_name = name
         self.players = players
-        self.pairs_history = []
+        self.scores = {player: 0 for player in self.players}
+        self.rounds_played = 0
+        self.past_pairs = []
 
-    @classmethod
-    def tournament_management(cls, name, round, players):
-        if round == 0:
-            pass
+    def calculate_score(self, winner, loser, score):
+        if loser != None:
+            self.scores[winner] += score
+            self.scores[loser] += 0
+        else:
+            self.scores[winner] += score
 
-    def set_pairs(self, players):
-        pairs = []
-        for i in range(0, len(players), 2):
-            pairs.append([players[i], players[i + 1]]) if i + 1 < len(
-                players
-            ) else pairs.append([players[i], ""])
-        self.pairs_history.append(pairs)
+    def create_pairs(self):
+        # Create random player pairs for the current round
+        pairs = 0
+        if self.rounds_played == 0:
+            random.shuffle(self.players)
+            if len(self.players) % 2 == 1:
+                self.players.append(None)
 
-        self.define_winners(pairs)
+            pairs = [
+                (self.players[i], self.players[i + 1])
+                for i in range(0, len(self.players), 2)
+            ]
+            self.past_pairs.append(pairs)
+            self.have_played_before(self.players)
 
-    def define_winners(self, matches):
-        winners = []
-        losers = []
-        nuls = []
-        for match in matches:
-            scores = [random.randint(0, 2) for _ in range(2)]
-            print(match)
-            if scores[0] > scores[1]:
-                winners.append([match[0], 1])
-                losers.append([match[1], 0])
-            elif scores[1] > scores[0]:
-                winners.append([match[1], 0])
-                losers.append([match[0], 1])
+    def have_played_before(self, players):
+        print(players)
+        for pair in self.past_pairs:
+            if pair in players:
+                print(pair)
+                print(" Au jucat impreuna")
             else:
-                nuls.append([match[0], 0.5])
-                nuls.append([match[1], 0.5])
+                print(pair)
+                print("nu au jucat deja impreuine")
 
-        print(winners)
-        print(" -------------")
-        print(losers)
-        print("-------------")
-        print(nuls)
+        # for pair in pairs:
+        #     if None in pair:
+        #         self.calculate_score(pair[0], pair[1], 0.5)
+
+        # # Verify if pairs have played before and calculate scores
+        # for pair in pairs:
+        #     if None in pair:
+        #         if pair[0] == None:
+        # self.calculate_score(pair[1], pair[0], 0.5)
+        #         else:
+        #             self.calculate_score(pair[0], pair[1], 0.5)
+        #         continue
+        #     if self.have_played_before(pair):
+        #         continue
+        #     winner, loser = self.calculate_winner(pair)
+        #     self.calculate_score(winner, loser, 1)
+        #     self.past_pairs.append(pair)
+        # self.past_pairs.extend(pairs)
+        # self.rounds_played += 1
+        # self.players = [
+        #     self.players[i]
+        #     for i in range(len(self.players))
+        #     if self.scores[self.players[i]] < self.rounds_played * 2
+        # ]
+
+    # def have_played_before(self, pair):
+    #     if pair in self.past_pairs:
+    #         return True
+    #     if (pair[1], pair[0]) in self.past_pairs:
+    #         return True
+    #     return False
+
+    # def calculate_winner(self, pair):
+    #     return (pair[0], pair[1]) if random.choice([True, False]) else (pair[1], pair[0])
+
+    # def get_winner(self):
+    #     self.scores = [(player, score) for player, score in enumerate(self.scores)]
+    #     self.scores.sort(key=lambda x: x[1], reverse=True)
+    #     # print(self.scores[0])
+    #     return self.scores[0]
+
+    # # def play_round(self):
+    # #     while len(self.players) > 1:
+    # #         self.create_pairs()
+    # #         self.scores = [(player, 0) for player in self.players]
+    # #         self.scores = [0] * len(self.players)
+    # #     return self.get_winner()[0]
+
+    # def play_tournament(self):
+    #     # self.play_round()
+    #     self.players = [self.get_winner()[0]]
+    #     self.scores = [0]
+    #     return self.get_winner()
+
+    # # def print_scores(self):
+    # #     for player, score in self.scores:
+    # #         print(f"{self.players[player]}: {score}")
 
 
-t = Tournois(
-    "turnois_paris_2023",
-    "0",
+turneu = Tournois(
+    "paris_2023",
     [
         "Alice",
         "Bob",
@@ -71,30 +123,8 @@ t = Tournois(
         "Randy",
         "Sarah",
         "Tom",
+        "Dan",
     ],
 )
-t.set_pairs(
-    [
-        "Alice",
-        "Bob",
-        "Charlie",
-        "Dave",
-        "Eve",
-        "Frank",
-        "Grace",
-        "Heidi",
-        "Ivan",
-        "Judy",
-        "Kevin",
-        "Linda",
-        "Mike",
-        "Nancy",
-        "Oscar",
-        "Patty",
-        "Quentin",
-        "Randy",
-        "Sarah",
-        "Tom",
-        "Dany",
-    ]
-)
+# turneu.play_tournament()
+turneu.create_pairs()
