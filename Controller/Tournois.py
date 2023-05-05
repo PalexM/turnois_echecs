@@ -24,7 +24,7 @@ class Tournois:
         for player in sorted(
             self.player_inf.items(), key=lambda x: x[1]["score"], reverse=True
         ):
-            if player[1]["eliminated"] is not True:
+            if not player[1]["eliminated"]:
                 pairs.append(player[0])
         # Si la liste pairs contient un nombre impair de joueurs, on retire un joueur au hasard
         if len(pairs) % 2 == 1:
@@ -44,16 +44,17 @@ class Tournois:
                         "adversary": pairs[i],
                     }
                 else:
-                    non_valid_pairs.append(pairs[i], pairs[i + 1])
+                    non_valid_pairs.append((pairs[i], pairs[i + 1]))
 
         # On met à jour les informations des joueurs avec les nouvelles paires générées
         self.update_player_infos(players)
         # Si des paires non valides ont été détectées, on réorganise les paires
-        if len(non_valid_pairs) > 0:
-            self.reorganise_pairs()
+        if non_valid_pairs:
+            new_pairs += self.reorganise_pairs(non_valid_pairs)
 
         # On calcule les gagnants de chaque paire
         self.calculate_winners(new_pairs)
+
 
     def reorganise_pairs(self, pairs):
         new_pairs = []
@@ -90,21 +91,32 @@ class Tournois:
     def calculate_winners(self, pairs):
         winners, losers, nulls = [], [], []
         # Pour chaque paire, on tire au hasard un nombre pour déterminer le gagnant
+        rdm = random.random()
         for i in range(0, len(pairs), 2):
-            if random.random() < 1 / 3:
-                nulls.append(pairs[i])
-                nulls.append(pairs[i + 1])
-            elif random.random() < 2 / 3:
-                winners.append(pairs[i])
-                losers.append(pairs[i + 1])
+            if i + 1 < len(pairs):
+                if rdm < 1 / 3:
+                    nulls.append(pairs[i])
+                    nulls.append(pairs[i + 1])
+                elif rdm < 2 / 3:
+                    winners.append(pairs[i])
+                    losers.append(pairs[i + 1])
+                else:
+                    winners.append(pairs[i + 1])
+                    losers.append(pairs[i])
             else:
-                winners.append(pairs[i + 1])
-                losers.append(pairs[i])
-
+                if len(losers) and len(nulls) == 0:
+                    if len(winners) == 1:
+                        # On choisit au hasard un des éléments de la liste
+                        winner = random.choice(winners)[0]
+                        # Nous identifions l'élément de la liste qui n'est pas le gagnant et l'appelons le perdant
+                        loser = [x for x in winners[0] if x != winners][0]
+                        self.player_inf[winner]['winner'] = True
+                        self.player_inf[loser]["winner"] = False
         # On transforme les listes de paires en listes de joueurs
         winners = [w for winner in winners for w in winner]
         losers = [l for loser in losers for l in loser]
         nulls = [n for null in nulls for n in null]
+
 
         # On prépare les informations des joueurs pour le prochain tour
         self.prepare_players_infos(winners, losers, nulls)
@@ -123,8 +135,11 @@ class Tournois:
         # On met à jour les informations des joueurs avec les résultats du tour
         self.update_player_infos(player)
 
-        print(self.player_inf)
 
+    def play_tournament(self):
+        
+        for player in self.player_inf:
+            while
 
 turneu = Tournois(
     "paris_2023",
@@ -152,5 +167,5 @@ turneu = Tournois(
         "Dan",
     ],
 )
-# turneu.play_tournament()
-turneu.pairs_generation()
+turneu.play_tournament()
+# turneu.pairs_generation()
