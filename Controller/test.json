@@ -1,0 +1,904 @@
+{
+    "Alice": {
+        "score": 0.5,
+        "adversary": [
+            "Bob"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Bob": {
+        "score": 0.5,
+        "adversary": [
+            "Alice"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Charlie": {
+        "score": 0.5,
+        "adversary": [
+            "Dave"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Dave": {
+        "score": 0.5,
+        "adversary": [
+            "Charlie"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Eve": {
+        "score": 0.5,
+        "adversary": [
+            "Frank"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Frank": {
+        "score": 0.5,
+        "adversary": [
+            "Eve"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Grace": {
+        "score": 0.5,
+        "adversary": [
+            "Heidi"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Heidi": {
+        "score": 0.5,
+        "adversary": [
+            "Grace"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Ivan": {
+        "score": 0.5,
+        "adversary": [
+            "Judy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Judy": {
+        "score": 0.5,
+        "adversary": [
+            "Ivan"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Kevin": {
+        "score": 0.5,
+        "adversary": [
+            "Linda"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Linda": {
+        "score": 0.5,
+        "adversary": [
+            "Kevin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Mike": {
+        "score": 0.5,
+        "adversary": [
+            "Nancy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Nancy": {
+        "score": 0.5,
+        "adversary": [
+            "Mike"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Oscar": {
+        "score": 0.5,
+        "adversary": [
+            "Patty",
+            "Quentin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Patty": {
+        "score": 0.5,
+        "adversary": [
+            "Oscar"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Quentin": {
+        "score": 0.5,
+        "adversary": [
+            "Randy",
+            "Oscar"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Randy": {
+        "score": 0.5,
+        "adversary": [
+            "Quentin",
+            "Sarah"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Sarah": {
+        "score": 0.5,
+        "adversary": [
+            "Dan",
+            "Randy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Tom": {
+        "score": 0,
+        "adversary": [
+            "Dan"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Dan": {
+        "score": 0.5,
+        "adversary": [
+            "Sarah",
+            "Tom"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    }
+}{
+    "Alice": {
+        "score": 0.5,
+        "adversary": [
+            "Bob"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Bob": {
+        "score": 1.5,
+        "adversary": [
+            "Alice",
+            "Charlie"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Charlie": {
+        "score": 1.5,
+        "adversary": [
+            "Dave",
+            "Bob"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dave": {
+        "score": 0.5,
+        "adversary": [
+            "Charlie"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Eve": {
+        "score": 0.5,
+        "adversary": [
+            "Frank"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Frank": {
+        "score": 1.5,
+        "adversary": [
+            "Eve",
+            "Grace"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Grace": {
+        "score": 1.5,
+        "adversary": [
+            "Heidi",
+            "Frank"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Heidi": {
+        "score": 0.5,
+        "adversary": [
+            "Grace"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Ivan": {
+        "score": 0.5,
+        "adversary": [
+            "Judy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Judy": {
+        "score": 0.5,
+        "adversary": [
+            "Ivan",
+            "Tom"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Kevin": {
+        "score": 0.5,
+        "adversary": [
+            "Linda",
+            "Mike"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Linda": {
+        "score": 0.5,
+        "adversary": [
+            "Kevin"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Mike": {
+        "score": 0.5,
+        "adversary": [
+            "Nancy",
+            "Kevin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Nancy": {
+        "score": 0.5,
+        "adversary": [
+            "Mike",
+            "Patty"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Oscar": {
+        "score": 1.5,
+        "adversary": [
+            "Patty",
+            "Quentin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Patty": {
+        "score": 0.5,
+        "adversary": [
+            "Oscar",
+            "Nancy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Quentin": {
+        "score": 1.5,
+        "adversary": [
+            "Randy",
+            "Oscar"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Randy": {
+        "score": 0.5,
+        "adversary": [
+            "Quentin",
+            "Sarah"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Sarah": {
+        "score": 0.5,
+        "adversary": [
+            "Dan",
+            "Randy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Tom": {
+        "score": 1,
+        "adversary": [
+            "Dan",
+            "Judy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dan": {
+        "score": 1.5,
+        "adversary": [
+            "Sarah",
+            "Tom"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    }
+}{
+    "Alice": {
+        "score": 0.5,
+        "adversary": [
+            "Bob"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Bob": {
+        "score": 1.5,
+        "adversary": [
+            "Alice",
+            "Charlie"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Charlie": {
+        "score": 1.5,
+        "adversary": [
+            "Dave",
+            "Bob"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dave": {
+        "score": 0.5,
+        "adversary": [
+            "Charlie"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Eve": {
+        "score": 0.5,
+        "adversary": [
+            "Frank"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Frank": {
+        "score": 2.5,
+        "adversary": [
+            "Eve",
+            "Grace"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Grace": {
+        "score": 2.5,
+        "adversary": [
+            "Heidi",
+            "Frank"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Heidi": {
+        "score": 0.5,
+        "adversary": [
+            "Grace"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Ivan": {
+        "score": 0.5,
+        "adversary": [
+            "Judy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Judy": {
+        "score": 0.5,
+        "adversary": [
+            "Ivan",
+            "Tom"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Kevin": {
+        "score": 1.5,
+        "adversary": [
+            "Linda",
+            "Mike"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Linda": {
+        "score": 0.5,
+        "adversary": [
+            "Kevin"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Mike": {
+        "score": 1.5,
+        "adversary": [
+            "Nancy",
+            "Kevin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Nancy": {
+        "score": 0.5,
+        "adversary": [
+            "Mike",
+            "Patty"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Oscar": {
+        "score": 1.5,
+        "adversary": [
+            "Patty",
+            "Quentin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Patty": {
+        "score": 0.5,
+        "adversary": [
+            "Oscar",
+            "Nancy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Quentin": {
+        "score": 1.5,
+        "adversary": [
+            "Randy",
+            "Oscar",
+            "Dan"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 3
+    },
+    "Randy": {
+        "score": 0.5,
+        "adversary": [
+            "Quentin",
+            "Sarah"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Sarah": {
+        "score": 0.5,
+        "adversary": [
+            "Dan",
+            "Randy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Tom": {
+        "score": 1,
+        "adversary": [
+            "Dan",
+            "Judy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dan": {
+        "score": 1.5,
+        "adversary": [
+            "Sarah",
+            "Tom",
+            "Quentin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 3
+    }
+}{
+    "Alice": {
+        "score": 0.5,
+        "adversary": [
+            "Bob"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Bob": {
+        "score": 1.5,
+        "adversary": [
+            "Alice",
+            "Charlie"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Charlie": {
+        "score": 1.5,
+        "adversary": [
+            "Dave",
+            "Bob"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dave": {
+        "score": 0.5,
+        "adversary": [
+            "Charlie"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Eve": {
+        "score": 0.5,
+        "adversary": [
+            "Frank"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Frank": {
+        "score": 2.5,
+        "adversary": [
+            "Eve",
+            "Grace"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Grace": {
+        "score": 3.0,
+        "adversary": [
+            "Heidi",
+            "Frank",
+            "Quentin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 3
+    },
+    "Heidi": {
+        "score": 0.5,
+        "adversary": [
+            "Grace"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Ivan": {
+        "score": 0.5,
+        "adversary": [
+            "Judy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Judy": {
+        "score": 0.5,
+        "adversary": [
+            "Ivan",
+            "Tom"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Kevin": {
+        "score": 2.0,
+        "adversary": [
+            "Linda",
+            "Mike",
+            "Oscar",
+            "Dan"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 4
+    },
+    "Linda": {
+        "score": 0.5,
+        "adversary": [
+            "Kevin"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 1
+    },
+    "Mike": {
+        "score": 1.5,
+        "adversary": [
+            "Nancy",
+            "Kevin"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Nancy": {
+        "score": 0.5,
+        "adversary": [
+            "Mike",
+            "Patty"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Oscar": {
+        "score": 2.0,
+        "adversary": [
+            "Patty",
+            "Quentin",
+            "Kevin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 3
+    },
+    "Patty": {
+        "score": 0.5,
+        "adversary": [
+            "Oscar",
+            "Nancy"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Quentin": {
+        "score": 3.0,
+        "adversary": [
+            "Randy",
+            "Oscar",
+            "Dan",
+            "Grace"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 4
+    },
+    "Randy": {
+        "score": 0.5,
+        "adversary": [
+            "Quentin",
+            "Sarah"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Sarah": {
+        "score": 0.5,
+        "adversary": [
+            "Dan",
+            "Randy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Tom": {
+        "score": 1,
+        "adversary": [
+            "Dan",
+            "Judy"
+        ],
+        "eliminated": true,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 2
+    },
+    "Dan": {
+        "score": 2.5,
+        "adversary": [
+            "Sarah",
+            "Tom",
+            "Quentin",
+            "Kevin"
+        ],
+        "eliminated": false,
+        "tournament_name": "paris_2023",
+        "winner": false,
+        "rounds_played": 4
+    }
