@@ -33,32 +33,34 @@ class Tournois:
         self,
         name,
         place,
-        start_date,
-        end_date,
         players,
-        infos_turnament,
+        infos_tournament,
         rounds=4,
+        start_tournament=False
     ):
         self.name = name
         self.place = place
-        self.start_date = start_date
-        self.end_date = end_date
         self.rounds = rounds
         self.players = players
-        self.infos_turnament = infos_turnament
+        self.infos_tournament = infos_tournament
+        self.start_tournament = start_tournament
 
-    def add_turnament(self):
+
+    def __str__(self):
+        if self.start_tournament:
+            return f"Le tournoi {self.name} vient de commencer"
+        else:
+            return f"Le tournoi {self.name} vient d'être créé"
+
+    def add_tournament(self):
         """Ajouter un nouveau tournois ou returne une expetion ValueError"""
-        actual_round = 0
         turnois = {
             "Nom": self.name,
             "Lieu": self.place,
-            "Date debut": self.start_date,
-            "Date fin": self.end_date,
             "Tours depart": self.rounds,
-            "Tour Actuel": actual_round,
             "Joueurs": self.players,
-            "Informations turnois": self.infos_turnament,
+            "Commence" : self.start_tournament,
+            "Informations turnois": self.infos_tournament,
         }
 
         data = Tournois._get_json_file()
@@ -76,29 +78,34 @@ class Tournois:
         # Écrire les données dans le fichier JSON
         Tournois._write_json_file(data)
 
-    def get_turnament(self, turnament_name):
+    def get_tournament(self, tournament_name):
         """Récupérer les informations d'un tournois, returne le turnois ou KeyError exception"""
         data = Tournois._get_json_file()
 
         for el in data:
             # Parcourir la liste des éléments et vérifier si l'ID correspond
             if re.sub(r"[^a-zA-Z0-9]", "", el.get("Nom").lower()) == re.sub(
-                r"[^a-zA-Z0-9]", "", turnament_name.lower()
+                r"[^a-zA-Z0-9]", "", tournament_name.lower()
             ):
                 return el
             else:
                 raise KeyError("Ce Tournois n'est pas enregistré")
 
-    def update_turnament(self, turnament_name, turnament_data):
+
+    def get_tournaments(self):
+        data = Tournois._get_json_file()
+        return data
+
+    def update_tournament(self, tournament_name, tournament_data):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
         data = Tournois._get_json_file()
 
         for i, element in enumerate(data):
             # Parcourir la liste des éléments et vérifier si l'ID correspond
-            if re.sub(r"[^a-zA-Z0-9]", "", element["Nom"]) == turnament_name:
+            if re.sub(r"[^a-zA-Z0-9]", "", element["Nom"]) == tournament_name:
                 data.pop(i)
                 # Si l'ID correspond, supprimer l'élément correspondant
-                data.append(turnament_data)
+                data.append(tournament_data)
                 # Ajouter l'élément mis à jour
                 break
             else:
@@ -109,13 +116,10 @@ class Tournois:
 
 
 my_tournament = Tournois(
-    name="tournois1",
-    place="Paris",
-    start_date="2023-05-01",
-    end_date="2023-05-08",
-    rounds=6,
-    players=["toto", "tata"],
-    infos_turnament={
+   "tournois12345",
+    "Paris",
+   ["toto", "tata"],
+    {
         "Lorem": "Lorem ipsum dolor sit amet.",
         "Integer": "Integer accumsan dui.",
         "Pellentesque": "Pellentesque eget enim ut nibh.",
@@ -127,13 +131,15 @@ my_tournament = Tournois(
         "Morbi": "Morbi euismod nisl.",
         "Nulla": "Nulla eu tellus efficitur.",
     },
+    6,
 )
-my_tournament._get_json_file()
-# my_tournament.add_turnament()
+my_tournament.add_tournament()
+print(my_tournament)
+# my_tournament.add_tournament()
 
-# print(my_tournament.get_turnament("tournois1"))
+# print(my_tournament.get_tournament("tournois1"))
 
-# my_tournament.update_turnament(
+# my_tournament.update_tournament(
 #     "tournois1",
 #     {
 #         "Nom": "tournois1",

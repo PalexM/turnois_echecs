@@ -1,11 +1,25 @@
 import random
+from datetime import datetime
+import sys
+sys.path.append("..")
+
+from Model.Joueurs import Joueurs
+
 
 
 class Tournois:
-    def __init__(self, tournament_name, players):
+    def __init__(self, tournament_name, players, minumum_rounds=4):
         self.tournament_name = tournament_name
         self.players = players
-        self.rounds = 0
+        self.start_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f")
+        self.end_time = ""
+        self.actual_round = 0
+        self.minumum_rounds = minumum_rounds
+        self.winner_is = ""
+        self.rounds = {self.actual_round:{
+                        'pairs': [],
+                        'wait_list':""
+                    }}
         self.wait_list = ""
         self.wait_room = []
         self.player_inf = {
@@ -13,7 +27,6 @@ class Tournois:
                 "score": 0,
                 "adversary": [],
                 "eliminated": False,
-                "tournament_name": self.tournament_name,
                 "winner": False,
                 "rounds_played": 0,
             }
@@ -58,7 +71,16 @@ class Tournois:
         if non_valid_pairs:
             new_pairs = self.reorganise_pairs(non_valid_pairs)
         # On calcule les gagnants de chaque paire
+        if len(new_pairs) == 0:
+            return
         self.calculate_winners(new_pairs)
+        self.rounds.update({
+            self.actual_round:{
+                "pairs" : new_pairs,
+                "wait_list" : self.wait_list,
+            }
+        })
+        self.actual_round += 1
         self.wait_list = ""
 
     def reorganise_pairs(self, pairs):
@@ -127,7 +149,10 @@ class Tournois:
         for winner in winners:
             player[winner] = {"score": 1}
         for loser in losers:
-            player[loser] = {"score": 0, "eliminated": True}
+            if (self.actual_round >= self.minumum_rounds):
+                player[loser] = {"score": 0, "eliminated": True}
+            else:
+                player[loser] = {"score": 0}
         for null in nulls:
             player[null] = {"score": 0.5}
 
@@ -138,10 +163,12 @@ class Tournois:
         # Les gagnants ont un score de 1, les perdants sont éliminés et ont un score de 0,  les nulls ont un score de 0,5
         for w in winner:
             player[w] = {"score": 1, "winner": True}
+            self.winner_is = w
         for l in loser:
             player[l] = {"score": 0, "eliminated": True}
         self.update_player_infos(player)
-
+        self.end_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f")
+    
     def play_tournament(self):
         while True:
             for player in self.player_inf:
@@ -149,6 +176,15 @@ class Tournois:
                     return
                 else:
                     self.pairs_generation()
+    
+    def list_players_for_tournament(self):
+        players_data = Joueurs.get_players()
+        players = [(player['Nom'], player['ID']) for player in players_data]
+        print(players)
+
+        
+
+
 
 
 turneu = Tournois(
@@ -158,24 +194,28 @@ turneu = Tournois(
         "Bob",
         "Charlie",
         "Dave",
-        "Eve",
-        "Frank",
-        "Grace",
-        "Heidi",
-        "Ivan",
-        "Judy",
-        "Kevin",
-        "Linda",
-        "Mike",
-        "Nancy",
-        "Oscar",
-        "Patty",
-        "Quentin",
-        "Randy",
-        "Sarah",
-        "Tom",
-        "Dan",
+        # "Eve",
+        # "Frank",
+        # "Grace",
+        # "Heidi",
+        # "Ivan",
+        # "Judy",
+        # "Kevin",
+        # "Linda",
+        # "Mike",
+        # "Nancy",
+        # "Oscar",
+        # "Patty",
+        # "Quentin",
+        # "Randy",
+        # "Sarah",
+        # "Tom",
+        # "Dan",
     ],
 )
-turneu.play_tournament()
-print(turneu.player_inf)
+# turneu.play_tournament()
+# print(f"date debut : {turneu.start_time}\n")
+# print(f"date fin : {turneu.end_time} \n")
+# print(f"Tours: {turneu.rounds} \n")
+# print(turneu.player_inf)
+turneu.list_players_for_tournament()

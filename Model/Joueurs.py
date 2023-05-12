@@ -59,6 +59,7 @@ class Joueurs:
         # Écrire les données dans le fichier JSON
         Joueurs._write_json_file(data)
 
+
     def get_player(self, id):
         """Récupérer les informations d'un joueur, returne le joueur ou KeyError exception"""
         data = Joueurs._get_json_file()
@@ -68,6 +69,11 @@ class Joueurs:
                 return el
             else:
                 raise KeyError("Ce Joueur n'est pas enregistré")
+    
+    @staticmethod
+    def get_players():
+        data = Joueurs._get_json_file()
+        return data
 
     def update_player(self, id, player_data):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
@@ -98,4 +104,4 @@ if __name__ == "__main__":
         "Date naissance": "08/11/1991",
         "ID": "AB5454a",
     }
-    player.add_player()
+    player.get_players()
