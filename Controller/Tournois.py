@@ -1,221 +1,169 @@
-import random
 from datetime import datetime
 import sys
+
 sys.path.append("..")
-
 from Model.Joueurs import Joueurs
+from Model.Tournois import Tournois as Tournois_Model
+from Matchs import Match
+from Vue.Vues import Vues
 
+# def __init__(self, name, place, players, rounds=4, start_tournament=False):
+#     self.name = name
+#     self.place = place
+#     self.rounds = rounds
+#     self.players = players
+#     self.start_tournament = start_tournament
 
 
 class Tournois:
-    def __init__(self, tournament_name, players, minumum_rounds=4):
-        self.tournament_name = tournament_name
-        self.players = players
-        self.start_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f")
-        self.end_time = ""
-        self.actual_round = 0
-        self.minumum_rounds = minumum_rounds
-        self.winner_is = ""
-        self.rounds = {self.actual_round:{
-                        'pairs': [],
-                        'wait_list':""
-                    }}
-        self.wait_list = ""
-        self.wait_room = []
-        self.player_inf = {
-            player: {
-                "score": 0,
-                "adversary": [],
-                "eliminated": False,
-                "winner": False,
-                "rounds_played": 0,
-            }
-            for player in self.players
-        }
+    def __init__(self):
+        self.vue = Vues()
 
-    def pairs_generation(self):
-        pairs, new_pairs, players, non_valid_pairs = [], [], {}, []
-        # On trie les joueurs par score et on les ajoute à la liste pairs s'ils ne sont pas éliminés
-        for player in sorted(
-            self.player_inf.items(), key=lambda x: x[1]["score"], reverse=True
-        ):
-            if not player[1]["eliminated"]:
-                pairs.append(player[0])
-
-        if len(pairs) % 2 == 1:
-            while True:
-                random_index = random.randrange(len(pairs))
-                self.wait_list = pairs.pop(random_index)
-                if self.wait_list is not self.wait_room:
-                    self.wait_room.append(self.wait_list)
-                    break
-
-        for i in range(0, len(pairs), 2):
-            if i + 1 < len(pairs):
-                if pairs[i] not in self.player_inf[pairs[i + 1]]["adversary"]:
-                    new_pairs.append((pairs[i], pairs[i + 1]))
-                    players[pairs[i]] = {
-                        "rounds_played": 1,
-                        "adversary": pairs[i + 1],
-                    }
-                    players[pairs[i + 1]] = {
-                        "rounds_played": 1,
-                        "adversary": pairs[i],
-                    }
-                else:
-                    non_valid_pairs.append((pairs[i], pairs[i + 1]))
-
-        # On met à jour les informations des joueurs avec les nouvelles paires générées
-        self.update_player_infos(players)
-        # Si des paires non valides ont été détectées, on réorganise les paires
-        if non_valid_pairs:
-            new_pairs = self.reorganise_pairs(non_valid_pairs)
-        # On calcule les gagnants de chaque paire
-        if len(new_pairs) == 0:
-            return
-        self.calculate_winners(new_pairs)
-        self.rounds.update({
-            self.actual_round:{
-                "pairs" : new_pairs,
-                "wait_list" : self.wait_list,
-            }
-        })
-        self.actual_round += 1
-        self.wait_list = ""
-
-    def reorganise_pairs(self, pairs):
-        new_pairs = []
-        # On échange les adversaires des joueurs non valides pour rendre les paires valides
-        if len(pairs) > 2:
-            for i in range(0, len(pairs), 2):
-                if i + 1 < len(pairs):
-                    new_pairs.append((pairs[i][0], pairs[i + 1][1]))
-                    new_pairs.append((pairs[i + 1][0], pairs[i][1]))
-            return new_pairs
-        else:
-            return pairs
-
-    def update_player_infos(self, data):
-        params = {
-            "score",
-            "adversary",
-            "eliminated",
-            "tournament_name",
-            "winner",
-            "rounds_played",
-        }
-
-        for key, val in data.items():
-            for param in params:
-                if param in val:
-                    # Si le paramètre est le score ou le nombre de tours joués, on l'ajoute au score existant du joueur
-                    if param == "score" or param == "rounds_played":
-                        self.player_inf[key][param] += val[param]
-                    # Si le paramètre est le statut de vainqueur ou éliminé, on le met à jour
-                    elif param == "winner" or param == "eliminated":
-                        self.player_inf[key][param] = val[param]
-                    # Si le paramètre est les adversaires, on ajoute le nouvel adversaire à la liste
-                    elif param == "adversary":
-                        self.player_inf[key][param].append(val[param])
-
-    def calculate_winners(self, pairs):
-        winners, losers, nulls = [], [], []
-        # Pour chaque paire, on tire au hasard un nombre pour déterminer le gagnant
-        for pair in pairs:
-            rdm = random.random()
-            if rdm < 1 / 3:
-                nulls.append(pair[0])
-                nulls.append(pair[1])
-            elif rdm < 2 / 3:
-                winners.append(pair[0])
-                losers.append(pair[1])
-            else:
-                winners.append(pair[1])
-                losers.append(pair[0])
-        # On transforme les listes de paires en listes de joueurs
-
-        if len(pairs) <= 1 and len(winners) <= 1 and self.wait_list == "":
-            if len(nulls) != 0:
-                self.prepare_players_infos(winners, losers, nulls)
-            else:
-                self.design_winner(winners, losers)
-        else:
-            self.prepare_players_infos(winners, losers, nulls)
-
-    def prepare_players_infos(self, winners, losers, nulls):
-        player = {}
-
-        # Les gagnants ont un score de 1, les perdants sont éliminés et ont un score de 0,  les nulls ont un score de 0,5
-        for winner in winners:
-            player[winner] = {"score": 1}
-        for loser in losers:
-            if (self.actual_round >= self.minumum_rounds):
-                player[loser] = {"score": 0, "eliminated": True}
-            else:
-                player[loser] = {"score": 0}
-        for null in nulls:
-            player[null] = {"score": 0.5}
-
-        self.update_player_infos(player)
-
-    def design_winner(self, winner, loser):
-        player = {}
-        # Les gagnants ont un score de 1, les perdants sont éliminés et ont un score de 0,  les nulls ont un score de 0,5
-        for w in winner:
-            player[w] = {"score": 1, "winner": True}
-            self.winner_is = w
-        for l in loser:
-            player[l] = {"score": 0, "eliminated": True}
-        self.update_player_infos(player)
-        self.end_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f")
-    
-    def play_tournament(self):
+    def create_new_tournament(self):
+        name = self.get_input("Nom Tournoi : ")
+        place = self.get_input("Emplacement Tournoi : ")
+        all_players = Joueurs.get_players()
         while True:
-            for player in self.player_inf:
-                if self.player_inf[player]["winner"]:
-                    return
-                else:
-                    self.pairs_generation()
-    
-    def list_players_for_tournament(self):
-        players_data = Joueurs.get_players()
-        players = [(player['Nom'], player['ID']) for player in players_data]
-        print(players)
+            rounds = int(input("Nombre de Tours  (min 4): "))
+            if rounds >= 4:
+                break
 
-        
+        select_players = self.select_players_for_tournament(all_players)
+        while True:
+            start_tournament = input(
+                "Voulez-vous commencer le tournoi maintenant ? Oui / Non   : "
+            )
+            if (
+                start_tournament.lower().strip() == "oui"
+                or start_tournament.lower().strip() == "non"
+            ):
+                break
+
+        try:
+            new_tournament = Tournois_Model(
+                name, place, select_players, rounds, start_tournament
+            )
+            new_tournament.add_tournament()
+            print(self.vue.color_green("\n   Le tournoi a été crée avec succès   \n"))
+        except ValueError as e:
+            print("Erreur:", self.vue.color_red(str(e)))
+
+    def start_tournament(self):
+        tournaments = Tournois_Model.get_tournaments()
+        non_started_tournaments = [
+            tournament["Nom"]
+            for tournament in tournaments
+            if tournament["Debut"] == "non"
+        ]
+        if len(non_started_tournaments) <= 0:
+            pass
+        else:
+            while True:
+                self.list_options(
+                    "Sélectionnez un tournoi pour commencer", non_started_tournaments
+                )
+                start_tournament = int(input())
+                if 0 <= start_tournament < len(non_started_tournaments):
+                    break
+        tournament_data = Tournois_Model.get_tournament(
+            non_started_tournaments[start_tournament]
+        )
+        start_tournament = Match(
+            tournament_data.get("Nom"),
+            tournament_data.get("Joueurs"),
+            tournament_data.get("Tours depart"),
+        )
+
+        self.tournament_results(start_tournament.play_tournament())
+
+    def tournament_results(self, results):
+        joueur = Joueurs
+        players = dict(player for player in results.get("infos").items())
+
+        for player in players.items():
+            print(player[1].get("winner"))
+
+    def select_players_for_tournament(self, player_data):
+        selected_players = []
+        all_players = [
+            f" {player.get('Nom')} {player.get('Prenom')} ID :{player.get('ID')}"
+            for player in player_data
+        ]
+        while True:
+            self.list_options("Choisissez les joueurs", all_players)
+            selected = input(
+                "Veuillez sélectionner un joueur, pour quitter sélectionner x : "
+            )
+            if selected == "x" or len(all_players) < 1:
+                break
+            else:
+                try:
+                    selected = int(selected)
+                    selected_players.append(all_players[selected])
+                    all_players.pop(selected)
+                    self.list_options(
+                        "Joueurs sélectionnés jusqu'à présent :", selected_players
+                    )
+                except IndexError:
+                    print(
+                        "Erreur, le joueur n'existe pas, veuillez en sélectionner un autre."
+                    )
+                except ValueError:
+                    print("Erreur, veuillez entrer un nombre valide ou x pour quitter.")
+        return [player.split(":")[1] for player in selected_players]
+
+    def get_input(self, text):
+        while True:
+            var = input(text)
+            if len(var) > 0:
+                return var
+
+    def list_options(self, title, options):
+        print(f"\n\n \t\t\t {self.vue.color_yellow(title)}       \n\n ")
+        option = ""
+        for index, element in enumerate(options):
+            while (
+                len(element) <= 20
+            ):  #  égalisation des longueurs de texte pour l'esthétique et la mise en page
+                element += " "
+
+            if index % 5 == 4:  # creer 5 colones pour la mise en page
+                option += f" {self.vue.color_yellow(str(index))}) {self.vue.color_blue(element)}      "
+            else:
+                option += f" {self.vue.color_yellow(str(index))}) {self.vue.color_blue(element)}      "
+        option += " \n\n"
+        print(option)
 
 
-
-
-turneu = Tournois(
-    "paris_2023",
-    [
-        "Alice",
-        "Bob",
-        "Charlie",
-        "Dave",
-        # "Eve",
-        # "Frank",
-        # "Grace",
-        # "Heidi",
-        # "Ivan",
-        # "Judy",
-        # "Kevin",
-        # "Linda",
-        # "Mike",
-        # "Nancy",
-        # "Oscar",
-        # "Patty",
-        # "Quentin",
-        # "Randy",
-        # "Sarah",
-        # "Tom",
-        # "Dan",
-    ],
-)
+# turneu = Tournois(
+#     "paris_2023",
+#     [
+#         "Alice",
+#         "Bob",
+#         "Charlie",
+#         "Dave",
+# "Eve",
+# "Frank",
+# "Grace",
+# "Heidi",
+# "Ivan",
+# "Judy",
+# "Kevin",
+# "Linda",
+# "Mike",
+# "Nancy",
+# "Oscar",
+# "Patty",
+# "Quentin",
+# "Randy",
+# "Sarah",
+# "Tom",
+# "Dan",
+#     ],
+# )
 # turneu.play_tournament()
 # print(f"date debut : {turneu.start_time}\n")
 # print(f"date fin : {turneu.end_time} \n")
 # print(f"Tours: {turneu.rounds} \n")
 # print(turneu.player_inf)
-turneu.list_players_for_tournament()
+# turneu.list_players_for_tournament()
