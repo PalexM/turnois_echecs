@@ -176,6 +176,8 @@ class Match:
                         "tournament_name": self.tournament_name,
                         "tournament_rounds": self.rounds,
                         "infos": self.player_inf,
+                        "start_time": self.start_time,
+                        "end_time": self.end_time,
                     }
                 else:
                     self.pairs_generation()

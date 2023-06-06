@@ -28,7 +28,7 @@ class Tournois:
             if rounds >= 4:
                 break
 
-        select_players = self.select_players_for_tournament(all_players)
+        selected_players = self.select_players_for_tournament(all_players)
         while True:
             start_tournament = input(
                 "Voulez-vous commencer le tournoi maintenant ? Oui / Non   : "
@@ -41,10 +41,22 @@ class Tournois:
 
         try:
             new_tournament = Tournois_Model(
-                name, place, select_players, rounds, start_tournament
+                name, place, selected_players, rounds, start_tournament
             )
             new_tournament.add_tournament()
             print(self.vue.color_green("\n   Le tournoi a été crée avec succès   \n"))
+            if start_tournament == "oui":
+                print(
+                    self.vue.color_green(
+                        f"\n   Le tournoi  {name} vient de commencer!   \n"
+                    )
+                )
+                start_tournament = Match(
+                    name,
+                    selected_players,
+                    rounds,
+                )
+                self.tournament_results(start_tournament.play_tournament())
         except ValueError as e:
             print("Erreur:", self.vue.color_red(str(e)))
 
@@ -77,11 +89,19 @@ class Tournois:
         self.tournament_results(start_tournament.play_tournament())
 
     def tournament_results(self, results):
-        joueur = Joueurs
         players = dict(player for player in results.get("infos").items())
-
         for player in players.items():
-            print(player[1].get("winner"))
+            if player[1].get("winner"):
+                winner = player[0]
+                Joueurs.update_player(player[0], 1, results["tournament_name"])
+            else:
+                Joueurs.update_player(player[0], 0, results["tournament_name"])
+        print(
+            self.vue.color_blue("Le Tournoi "),
+            self.vue.color_green(results["tournament_name"]),
+            self.vue.color_blue(" vient d'etre remportee par "),
+            self.vue.color_green(winner),
+        )
 
     def select_players_for_tournament(self, player_data):
         selected_players = []
