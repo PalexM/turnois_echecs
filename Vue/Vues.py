@@ -1,5 +1,6 @@
 from colorama import Fore, Style
 import datetime
+import os
 
 
 class Vues:
@@ -21,20 +22,20 @@ class Vues:
     def header(self):
         now = datetime.datetime.now()
         print(
-            Fore.BLUE
+            Fore.GREEN
             + """
                                                                .::.
-                                            _()_       _::_
-                                  _O      _/____\_   _/____\_
-           _  _  _     ^^__      / //\    \      /   \      /
-          | || || |   /  - \_   {     }    \____/     \____/
-          |_______| <|    __<    \___/     (____)     (____)
-    _     \__ ___ / <|    \      (___)      |  |       |  |
-   (_)     |___|_|  <|     \      |_|       |__|       |__|
-  (___)    |_|___|  <|______\    /   \     /    \     /    \\
-  _|_|_    |___|_|   _|____|_   (_____)   (______)   (______)
- (_____)  (_______) (________) (_______) (________) (________)
- /_____\  /_______\ /________\ /_______\ /________\ /________\\
+                                                    _()_       _::_
+                                          _O      _/____\_   _/____\_
+                   _  _  _     ^^__      / //\    \      /   \      /
+                  | || || |   /  - \_   {     }    \____/     \____/
+                  |_______| <|    __<    \___/     (____)     (____)
+            _     \__ ___ / <|    \      (___)      |  |       |  |
+           (_)     |___|_|  <|     \      |_|       |__|       |__|
+          (___)    |_|___|  <|______\    /   \     /    \     /    \\
+          _|_|_    |___|_|   _|____|_   (_____)   (______)   (______)
+         (_____)  (_______) (________) (_______) (________) (________)
+         /_____\  /_______\ /________\ /_______\ /________\ /________\\
                                              
                                              __Centre échecs """
             + Fore.YELLOW
@@ -43,26 +44,29 @@ class Vues:
             Fore.BLUE + "__\n" + self.reset,
         )
 
-    def select_menu(self, menu: dict):
+    def menu(self, menu: dict):
         menu_text = "      ".join(
             [
-                self.color_danger(key + ")") + " " + self.color_info(value)
+                self.color_yellow(key + ")") + " " + self.color_blue(value)
                 for key, value in menu.items()
             ]
         )
-        return "\n" + menu_text + "\n\n"
+        print("\n" + menu_text + "\n\n")
 
-    def color_info(self, str):
+    def color_blue(self, str):
         return Fore.BLUE + str + self.reset
 
-    def color_danger(self, str):
+    def color_yellow(self, str):
         return Fore.YELLOW + str + self.reset
 
-    def color_error(self, str):
+    def color_red(self, str):
         return Fore.RED + str + self.reset
 
-    def color_validation(self, str):
+    def color_green(self, str):
         return Fore.GREEN + str + self.reset
+
+    def clear_console(self):
+        os.system("cls")
 
 
 # v = Vues()

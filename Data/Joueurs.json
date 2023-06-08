@@ -3,20 +3,74 @@
         "Nom": "Alexandru",
         "Prenom": "Pop",
         "Date naissance": "08/11/1991",
-        "ID": "AB5454"
+        "ID": "AB5454",
+        "Tournois Gagnee": 1,
+        "Liste Tournois Gagnee": [
+            "Pop"
+        ],
+        "Liste Tournois Participe": [
+            "Test1",
+            "papppp111",
+            "qsdfg",
+            "Pop"
+        ]
     },
     {
         "Nom": "Alexandru",
         "Prenom": "Pop",
         "Date naissance": "08/11/1991",
         "Turnois gagnee": 1,
-        "ID": "AB5454a"
+        "ID": "AB5454a",
+        "Tournois Gagnee": 1,
+        "Liste Tournois Gagnee": [
+            "Test1"
+        ],
+        "Liste Tournois Participe": [
+            "Test1",
+            "papppp111",
+            "qsdfg",
+            "Pop"
+        ]
     },
     {
         "Nom": "Alexandru",
         "Prenom": "Pop",
         "Date naissance": "08/11/1991",
-        "ID": "AB5454ada"
+        "ID": "AB5454ada",
+        "Tournois Gagnee": 2,
+        "Liste Tournois Gagnee": [
+            "papppp111",
+            "qsdfg"
+        ],
+        "Liste Tournois Participe": [
+            "Test1",
+            "papppp111",
+            "qsdfg",
+            "Pop"
+        ]
+    },
+    {
+        "Nom": "Alex",
+        "Prenom": "Pop",
+        "Date naissance": "03/15/2023",
+        "ID": "RT55223",
+        "Tournois Gagnee": 0,
+        "Liste Tournois Gagnee": [],
+        "Liste Tournois Participe": [
+            "Test1",
+            "papppp111",
+            "Pop"
+        ]
+    },
+    {
+        "Nom": "Popaaaaaaa",
+        "Prenom": "Alexxxxxxxxxxx",
+        "Date naissance": "02/56/1234",
+        "ID": "AR23451",
+        "Tournois Gagnee": 0,
+        "Liste Tournois Gagnee": [],
+        "Liste Tournois Participe": [
+            "qsdfg"
+        ]
     }
 ]
-

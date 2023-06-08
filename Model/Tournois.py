@@ -4,7 +4,7 @@ import re
 
 
 class Tournois:
-    """Class Tournois, Methodes principales: Creer un tournois, Récupérer les informations d'un tournois, Mettre à jour les informations d'un tournois"""
+    """A Class Tournois, Methodes principales: Creer un tournois, Récupérer les informations d'un tournois, Mettre à jour les informations d'un tournois"""
 
     # Obtention du chemin relatif vers le répertoire "Data"
     data_folder = os.path.abspath(
@@ -29,22 +29,12 @@ class Tournois:
         with open(cls.file_path, "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 
-    def __init__(
-        self,
-        name,
-        place,
-        players,
-        infos_tournament,
-        rounds=4,
-        start_tournament=False
-    ):
+    def __init__(self, name, place, players, rounds=4, start_tournament=False):
         self.name = name
         self.place = place
         self.rounds = rounds
         self.players = players
-        self.infos_tournament = infos_tournament
         self.start_tournament = start_tournament
-
 
     def __str__(self):
         if self.start_tournament:
@@ -59,8 +49,7 @@ class Tournois:
             "Lieu": self.place,
             "Tours depart": self.rounds,
             "Joueurs": self.players,
-            "Commence" : self.start_tournament,
-            "Informations turnois": self.infos_tournament,
+            "Debut": self.start_tournament,
         }
 
         data = Tournois._get_json_file()
@@ -78,21 +67,20 @@ class Tournois:
         # Écrire les données dans le fichier JSON
         Tournois._write_json_file(data)
 
-    def get_tournament(self, tournament_name):
+    @staticmethod
+    def get_tournament(tournament_name):
         """Récupérer les informations d'un tournois, returne le turnois ou KeyError exception"""
         data = Tournois._get_json_file()
+        for element in data:
+            if isinstance(element, dict):
+                if "Nom" in element and element["Nom"] == tournament_name:
+                    return element
 
-        for el in data:
-            # Parcourir la liste des éléments et vérifier si l'ID correspond
-            if re.sub(r"[^a-zA-Z0-9]", "", el.get("Nom").lower()) == re.sub(
-                r"[^a-zA-Z0-9]", "", tournament_name.lower()
-            ):
-                return el
             else:
-                raise KeyError("Ce Tournois n'est pas enregistré")
+                print("Elementul nu există")
 
-
-    def get_tournaments(self):
+    @staticmethod
+    def get_tournaments():
         data = Tournois._get_json_file()
         return data
 
@@ -115,26 +103,26 @@ class Tournois:
         Tournois._write_json_file(data)
 
 
-my_tournament = Tournois(
-   "tournois12345",
-    "Paris",
-   ["toto", "tata"],
-    {
-        "Lorem": "Lorem ipsum dolor sit amet.",
-        "Integer": "Integer accumsan dui.",
-        "Pellentesque": "Pellentesque eget enim ut nibh.",
-        "Vestibulum": "Vestibulum sagittis tellus.",
-        "Fusce": "Fusce eu lectus id ante.",
-        "Cras": "Cras semper enim a ex venenatis.",
-        "Aliquam": "Aliquam erat volutpat.",
-        "Maecenas": "Maecenas auctor turpis.",
-        "Morbi": "Morbi euismod nisl.",
-        "Nulla": "Nulla eu tellus efficitur.",
-    },
-    6,
-)
-my_tournament.add_tournament()
-print(my_tournament)
+# my_tournament = Tournois(
+#     "tournois12345",
+#     "Paris",
+#     ["toto", "tata"],
+#     {
+#         "Lorem": "Lorem ipsum dolor sit amet.",
+#         "Integer": "Integer accumsan dui.",
+#         "Pellentesque": "Pellentesque eget enim ut nibh.",
+#         "Vestibulum": "Vestibulum sagittis tellus.",
+#         "Fusce": "Fusce eu lectus id ante.",
+#         "Cras": "Cras semper enim a ex venenatis.",
+#         "Aliquam": "Aliquam erat volutpat.",
+#         "Maecenas": "Maecenas auctor turpis.",
+#         "Morbi": "Morbi euismod nisl.",
+#         "Nulla": "Nulla eu tellus efficitur.",
+#     },
+#     6,
+# )
+# my_tournament.add_tournament()
+# print(my_tournament)
 # my_tournament.add_tournament()
 
 # print(my_tournament.get_tournament("tournois1"))

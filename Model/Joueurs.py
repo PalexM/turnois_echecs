@@ -46,6 +46,9 @@ class Joueurs:
             "Prenom": self.first_name,
             "Date naissance": self.birth_date,
             "ID": self.id,
+            "Tournois Gagnee": 0,
+            "Liste Tournois Gagnee": [],
+            "Liste Tournois Participe": [],
         }
 
         data = Joueurs._get_json_file()
@@ -59,7 +62,6 @@ class Joueurs:
         # Écrire les données dans le fichier JSON
         Joueurs._write_json_file(data)
 
-
     def get_player(self, id):
         """Récupérer les informations d'un joueur, returne le joueur ou KeyError exception"""
         data = Joueurs._get_json_file()
@@ -69,39 +71,42 @@ class Joueurs:
                 return el
             else:
                 raise KeyError("Ce Joueur n'est pas enregistré")
-    
+
     @staticmethod
     def get_players():
         data = Joueurs._get_json_file()
         return data
 
-    def update_player(self, id, player_data):
+    @staticmethod
+    def update_player(id, score, tournmanent_name):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
         data = Joueurs._get_json_file()
-
-        for i, element in enumerate(data):
+        for element in data:
             # Parcourir la liste des éléments et vérifier si l'ID correspond
             if element["ID"] == id:
-                data.pop(i)
                 # Si l'ID correspond, supprimer l'élément correspondant
-                data.append(player_data)
+                if score < 1:
+                    element["Tournois Gagnee"] += score
+                    element["Liste Tournois Participe"].append(tournmanent_name)
+                else:
+                    element["Tournois Gagnee"] += score
+                    element["Liste Tournois Gagnee"].append(tournmanent_name)
+                    element["Liste Tournois Participe"].append(tournmanent_name)
                 # Ajouter l'élément mis à jour
                 break
-            else:
-                raise KeyError("Ce Joueur n'est pas enregistré")
 
         # Écrire les données dans le fichier JSON
         Joueurs._write_json_file(data)
 
 
-if __name__ == "__main__":
-    # Exemple d'utilisation de la classe Joueurs
-    player = Joueurs("Pop", "Alexandru", "08/11/1991", "AB5454ada")
+# if __name__ == "__main__":
+#     # Exemple d'utilisation de la classe Joueurs
+#     player = Joueurs("Pop", "Alexandru", "08/11/1991", "AB5454ada")
 
-    update_inf = {
-        "Nom": "Alexandru",
-        "Prenom": "Pop",
-        "Date naissance": "08/11/1991",
-        "ID": "AB5454a",
-    }
-    player.get_players()
+#     update_inf = {
+#         "Nom": "Alexandru",
+#         "Prenom": "Pop",
+#         "Date naissance": "08/11/1991",
+#         "ID": "AB5454a",
+#     }
+#     player.get_players()

@@ -1,4 +1,4 @@
 
 from Model.Joueurs import Joueurs
 
-print(Joueurs)
+print(Joueurs.get_players())
