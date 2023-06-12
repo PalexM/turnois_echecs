@@ -65,10 +65,11 @@ class Tournois:
         non_started_tournaments = [
             tournament["Nom"]
             for tournament in tournaments
-            if tournament["Debut"] == "non"
+            if tournament["Debut"].lower() == "non"
         ]
         if len(non_started_tournaments) <= 0:
-            pass
+            print("aucun tournois pret a commencer")
+            return
         else:
             while True:
                 self.list_options(
@@ -96,22 +97,15 @@ class Tournois:
                 Joueurs.update_player(player[0], 1, results["tournament_name"])
             else:
                 Joueurs.update_player(player[0], 0, results["tournament_name"])
-        tournament_name = results['tournament_name']
+        tournament_name = results["tournament_name"]
         data = {
-            'winner': results['winner'],
-            'rounds' : results['tournament_rounds'],
-            'infos' : results["infos"],
-            'start_date' : results['start_time'],
-            'end_date' : results['end_time'],
+            "winner": results["winner"],
+            "rounds": results["tournament_rounds"],
+            "infos": results["infos"],
+            "start_date": results["start_time"],
+            "end_date": results["end_time"],
         }
         Tournois_Model.update_tournament(tournament_name, data)
-
-        # print(
-        #     self.vue.color_blue("Le Tournoi "),
-        #     self.vue.color_green(results["tournament_name"]),
-        #     self.vue.color_blue(" vient d'etre remportee par "),
-        #     self.vue.color_green(winner),
-        # )
 
     def select_players_for_tournament(self, player_data):
         selected_players = []

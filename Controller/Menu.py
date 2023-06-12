@@ -4,6 +4,7 @@ sys.path.append("..")
 from Vue.Vues import Vues
 from Controller.Tournois import Tournois as Turnois_Controller
 from Controller.Joueurs import Joueurs
+from Controller.Rapports import Rapports
 
 
 class Menu:
@@ -41,9 +42,9 @@ class Menu:
                 tournois = Turnois_Controller()
                 tournois.start_tournament()
             case "3":
-                players = Joueurs().add_player()
+                Joueurs().add_player()
             case "4":
-                pass
+                Rapports().main()
             case _:
                 self.main_menu_interaction(
                     "L'option que vous avez saisie n'existe pas, réessayez: "
