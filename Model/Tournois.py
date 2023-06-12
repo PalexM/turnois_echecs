@@ -83,22 +83,25 @@ class Tournois:
     def get_tournaments():
         data = Tournois._get_json_file()
         return data
-
-    def update_tournament(self, tournament_name, tournament_data):
+    @staticmethod
+    def update_tournament(tournament_name, tournament_data):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
         data = Tournois._get_json_file()
 
         for i, element in enumerate(data):
-            # Parcourir la liste des éléments et vérifier si l'ID correspond
+        # Parcourir la liste des éléments et vérifier si l'ID correspond
             if re.sub(r"[^a-zA-Z0-9]", "", element["Nom"]) == tournament_name:
-                data.pop(i)
-                # Si l'ID correspond, supprimer l'élément correspondant
-                data.append(tournament_data)
+                element['Gagnant'] = tournament_data['winner']
+                element['Rounds'] = tournament_data['rounds']
+                element['Infos'] = tournament_data['infos']
+                element['Debut Tournoi'] = tournament_data['start_date']
+                element['Fin Tournoi'] = tournament_data['end_date']
+                element['Debut'] = 'oui'
+
+
                 # Ajouter l'élément mis à jour
                 break
-            else:
-                raise KeyError("Ce Tournois n'est pas enregistré")
-
+        print(data)
         # Écrire les données dans le fichier JSON
         Tournois._write_json_file(data)
 
@@ -127,8 +130,34 @@ class Tournois:
 
 # print(my_tournament.get_tournament("tournois1"))
 
-# my_tournament.update_tournament(
-#     "tournois1",
+
+    #   "Nom": "tournois qsd q qsd d qzdds ",
+    #     "Lieu": "Paris",
+    #     "Date debut": "2023-05-01",
+    #     "Date fin": "2023-05-08",
+    #     "Tours depart": 6,
+    #     "Tour Actuel": 0,
+    #     "Joueurs": [
+    #         "toto",
+    #         "tata"
+    #     ],
+    #     "Debut": "non",
+    #     "Informations turnois": {
+    #         "Lorem": "Lorem ipsum dolor sit amet.",
+    #         "Integer": "Integer accumsan dui.",
+    #         "Pellentesque": "Pellentesque eget enim ut nibh.",
+    #         "Vestibulum": "Vestibulum sagittis tellus.",
+    #         "Fusce": "Fusce eu lectus id ante.",
+    #         "Cras": "Cras semper enim a ex venenatis.",
+    #         "Aliquam": "Aliquam erat volutpat.",
+    #         "Maecenas": "Maecenas auctor turpis.",
+    #         "Morbi": "Morbi euismod nisl.",
+    #         "Nulla": "Nulla eu tellus efficitur."
+    #     }
+
+
+# Tournois.update_tournament(
+#     "tournois qsd q qsd d qzdds ",
 #     {
 #         "Nom": "tournois1",
 #         "Lieu": "Paris",
@@ -151,3 +180,4 @@ class Tournois:
 #         },
 #     },
 # )
+# # 

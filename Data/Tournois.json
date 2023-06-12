@@ -1,203 +1,209 @@
 [
     {
-        "Nom": "tournois qsd q qsd d qzdds ",
-        "Lieu": "Paris",
-        "Date debut": "2023-05-01",
-        "Date fin": "2023-05-08",
-        "Tours depart": 6,
-        "Tour Actuel": 0,
-        "Joueurs": [
-            "toto",
-            "tata"
-        ],
-        "Debut": "non",
-        "Informations turnois": {
-            "Lorem": "Lorem ipsum dolor sit amet.",
-            "Integer": "Integer accumsan dui.",
-            "Pellentesque": "Pellentesque eget enim ut nibh.",
-            "Vestibulum": "Vestibulum sagittis tellus.",
-            "Fusce": "Fusce eu lectus id ante.",
-            "Cras": "Cras semper enim a ex venenatis.",
-            "Aliquam": "Aliquam erat volutpat.",
-            "Maecenas": "Maecenas auctor turpis.",
-            "Morbi": "Morbi euismod nisl.",
-            "Nulla": "Nulla eu tellus efficitur."
-        }
-    },
-    {
-        "Nom": "tournois1",
-        "Lieu": "Paris",
-        "Date debut": "2023-05-01",
-        "Date fin": "2023-05-08",
-        "Tours depart": 6,
-        "Tour Actuel": 1,
-        "Joueurs": [
-            "toto",
-            "tata"
-        ],
-        "Debut": "non",
-        "Informations turnois": {
-            "Lorem": "Lorem ipsum dolor sit amet.",
-            "Integer": "Integer accumsan dui.",
-            "Pellentesque": "Pellentesque eget enim ut nibh.",
-            "Vestibulum": "Vestibulum sagittis tellus.",
-            "Fusce": "Fusce eu lectus id ante.",
-            "Cras": "Cras semper enim a ex venenatis.",
-            "Aliquam": "Aliquam erat volutpat.",
-            "Maecenas": "Maecenas auctor turpis.",
-            "Morbi": "Morbi euismod nisl.",
-            "Nulla": "Nulla eu tellus efficitur."
-        }
-    },
-    {
-        "Nom": "tournois123",
-        "Lieu": "Paris",
+        "Nom": "paris2023",
+        "Lieu": "paris",
         "Tours depart": 6,
         "Joueurs": [
-            "toto",
-            "tata"
+            "AA56723",
+            "PL12345",
+            "PP54321",
+            "KS34211"
         ],
-        "Debut": "non",
-        "Informations turnois": {
-            "Lorem": "Lorem ipsum dolor sit amet.",
-            "Integer": "Integer accumsan dui.",
-            "Pellentesque": "Pellentesque eget enim ut nibh.",
-            "Vestibulum": "Vestibulum sagittis tellus.",
-            "Fusce": "Fusce eu lectus id ante.",
-            "Cras": "Cras semper enim a ex venenatis.",
-            "Aliquam": "Aliquam erat volutpat.",
-            "Maecenas": "Maecenas auctor turpis.",
-            "Morbi": "Morbi euismod nisl.",
-            "Nulla": "Nulla eu tellus efficitur."
-        }
+        "Debut": "oui",
+        "Gagnant": "AA56723",
+        "Infos": {
+            "AA56723": {
+                "score": 5.0,
+                "adversary": [
+                    "PL12345",
+                    "KS34211",
+                    "PP54321"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 3
+            },
+            "PL12345": {
+                "score": 3.5,
+                "adversary": [
+                    "AA56723",
+                    "PP54321",
+                    "KS34211"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "PP54321": {
+                "score": 1.5,
+                "adversary": [
+                    "KS34211",
+                    "PL12345",
+                    "AA56723"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "KS34211": {
+                "score": 6.0,
+                "adversary": [
+                    "PP54321",
+                    "AA56723",
+                    "PL12345"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            }
+        },
+        "Debut Tournoi": "09/06/2023 10:52:00:246633",
+        "Fin Tournoi": "09/06/2023 10:52:00:246852"
     },
     {
-        "Nom": "tournois1234",
-        "Lieu": "Paris",
-        "Tours depart": 6,
-        "Joueurs": [
-            "toto",
-            "tata"
-        ],
-        "Debut": "non",
-        "Informations turnois": {
-            "Lorem": "Lorem ipsum dolor sit amet.",
-            "Integer": "Integer accumsan dui.",
-            "Pellentesque": "Pellentesque eget enim ut nibh.",
-            "Vestibulum": "Vestibulum sagittis tellus.",
-            "Fusce": "Fusce eu lectus id ante.",
-            "Cras": "Cras semper enim a ex venenatis.",
-            "Aliquam": "Aliquam erat volutpat.",
-            "Maecenas": "Maecenas auctor turpis.",
-            "Morbi": "Morbi euismod nisl.",
-            "Nulla": "Nulla eu tellus efficitur."
-        }
-    },
-    {
-        "Nom": "tournois12345",
-        "Lieu": "Paris",
-        "Tours depart": 6,
-        "Joueurs": [
-            "toto",
-            "tata"
-        ],
-        "Debut": "non",
-        "Informations turnois": {
-            "Lorem": "Lorem ipsum dolor sit amet.",
-            "Integer": "Integer accumsan dui.",
-            "Pellentesque": "Pellentesque eget enim ut nibh.",
-            "Vestibulum": "Vestibulum sagittis tellus.",
-            "Fusce": "Fusce eu lectus id ante.",
-            "Cras": "Cras semper enim a ex venenatis.",
-            "Aliquam": "Aliquam erat volutpat.",
-            "Maecenas": "Maecenas auctor turpis.",
-            "Morbi": "Morbi euismod nisl.",
-            "Nulla": "Nulla eu tellus efficitur."
-        }
-    },
-    {
-        "Nom": "Test1",
-        "Lieu": "Paris",
-        "Tours depart": "4",
-        "Joueurs": [
-            "AB5454a",
-            "AB5454",
-            "AB5454ada",
-            "RT55223"
-        ],
-        "Debut": "non"
-    },
-    {
-        "Nom": "azrazr as",
-        "Lieu": "dasdasd",
+        "Nom": "test1",
+        "Lieu": "test",
         "Tours depart": 4,
         "Joueurs": [
-            "AB5454",
-            "AB5454ada",
-            "AB5454a",
-            "RT55223"
+            "AA56723",
+            "PL12345",
+            "PP54321",
+            "KS34211"
         ],
-        "Debut": "Oui"
-    },
-    {
-        "Nom": "Paris 2025",
-        "Lieu": "Paris",
-        "Tours depart": 6,
-        "Joueurs": [
-            "AB5454",
-            "AB5454a",
-            "AB5454ada",
-            "RT55223",
-            "aa45675"
-        ],
-        "Debut": "Oui"
-    },
-    {
-        "Nom": "azerty",
-        "Lieu": "France",
-        "Tours depart": 5,
-        "Joueurs": [
-            "AR23451",
-            "AB5454a",
-            "AB5454",
-            "RT55223"
-        ],
-        "Debut": "oui"
-    },
-    {
-        "Nom": "papppp111",
-        "Lieu": "France",
-        "Tours depart": 4,
-        "Joueurs": [
-            "AB5454",
-            "AB5454ada",
-            "AB5454a",
-            "RT55223"
-        ],
-        "Debut": "oui"
-    },
-    {
-        "Nom": "qsdfg",
-        "Lieu": "sqsdqd",
-        "Tours depart": 4,
-        "Joueurs": [
-            "AB5454",
-            "AB5454ada",
-            "AR23451",
-            "AB5454a"
-        ],
-        "Debut": "oui"
-    },
-    {
-        "Nom": "Pop",
-        "Lieu": "France",
-        "Tours depart": 4,
-        "Joueurs": [
-            "AB5454",
-            "AB5454a",
-            "AB5454ada",
-            "RT55223"
-        ],
-        "Debut": "oui"
+        "Debut": "oui",
+        "Gagnant": "PL12345",
+        "Rounds": {
+            "0": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "1": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "2": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PP54321"
+                    ],
+                    [
+                        "KS34211",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "3": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "4": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PP54321"
+                    ],
+                    [
+                        "KS34211",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "5": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": "PP54321"
+            },
+            "6": {
+                "pairs": [
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            }
+        },
+        "Infos": {
+            "AA56723": {
+                "score": 4,
+                "adversary": [
+                    "PL12345",
+                    "KS34211",
+                    "PP54321"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "PL12345": {
+                "score": 2.5,
+                "adversary": [
+                    "AA56723",
+                    "PP54321",
+                    "KS34211"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 3
+            },
+            "PP54321": {
+                "score": 3,
+                "adversary": [
+                    "KS34211",
+                    "PL12345",
+                    "AA56723"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "KS34211": {
+                "score": 2.5,
+                "adversary": [
+                    "PP54321",
+                    "AA56723",
+                    "PL12345"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            }
+        },
+        "Debut Tournoi": "09/06/2023 11:10:31:346977",
+        "Fin Tournoi": "09/06/2023 11:10:31:347168"
     }
 ]
