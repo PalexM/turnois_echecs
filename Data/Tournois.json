@@ -10,23 +10,114 @@
             "KS34211"
         ],
         "Debut": "oui",
-        "Gagnant": "AA56723",
+        "Gagnant": "PP54321",
+        "Rounds": {
+            "0": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "1": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PP54321"
+                    ],
+                    [
+                        "KS34211",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "2": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "3": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "AA56723"
+                    ],
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "4": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "AA56723"
+                    ],
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "5": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PP54321",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "6": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "AA56723"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "7": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            }
+        },
         "Infos": {
             "AA56723": {
-                "score": 5.0,
-                "adversary": [
-                    "PL12345",
-                    "KS34211",
-                    "PP54321"
-                ],
-                "eliminated": false,
-                "winner": true,
-                "rounds_played": 3
-            },
-            "PL12345": {
                 "score": 3.5,
                 "adversary": [
-                    "AA56723",
+                    "PL12345",
                     "PP54321",
                     "KS34211"
                 ],
@@ -34,31 +125,42 @@
                 "winner": false,
                 "rounds_played": 3
             },
+            "PL12345": {
+                "score": 2.5,
+                "adversary": [
+                    "AA56723",
+                    "KS34211",
+                    "PP54321"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
             "PP54321": {
-                "score": 1.5,
+                "score": 4.0,
                 "adversary": [
                     "KS34211",
+                    "AA56723",
+                    "PL12345"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 3
+            },
+            "KS34211": {
+                "score": 5.0,
+                "adversary": [
+                    "PP54321",
                     "PL12345",
                     "AA56723"
                 ],
                 "eliminated": true,
                 "winner": false,
                 "rounds_played": 3
-            },
-            "KS34211": {
-                "score": 6.0,
-                "adversary": [
-                    "PP54321",
-                    "AA56723",
-                    "PL12345"
-                ],
-                "eliminated": true,
-                "winner": false,
-                "rounds_played": 3
             }
         },
-        "Debut Tournoi": "09/06/2023 10:52:00:246633",
-        "Fin Tournoi": "09/06/2023 10:52:00:246852"
+        "Debut Tournoi": "12/06/2023 15:43:24:719708",
+        "Fin Tournoi": "12/06/2023 15:43:24:719708"
     },
     {
         "Nom": "test1",
@@ -205,5 +307,428 @@
         },
         "Debut Tournoi": "09/06/2023 11:10:31:346977",
         "Fin Tournoi": "09/06/2023 11:10:31:347168"
+    },
+    {
+        "Nom": "cazd",
+        "Lieu": "da",
+        "Tours depart": 4,
+        "Joueurs": [
+            "AA56723",
+            "PL12345",
+            "PP54321",
+            "KS34211"
+        ],
+        "Debut": "oui",
+        "Gagnant": "KS34211",
+        "Rounds": {
+            "0": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "1": {
+                "pairs": [
+                    [
+                        "PP54321",
+                        "AA56723"
+                    ],
+                    [
+                        "PL12345",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "2": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PP54321"
+                    ],
+                    [
+                        "KS34211",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "3": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "4": {
+                "pairs": [
+                    [
+                        "PL12345",
+                        "AA56723"
+                    ],
+                    [
+                        "KS34211",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "5": {
+                "pairs": [
+                    [
+                        "PL12345",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            }
+        },
+        "Infos": {
+            "AA56723": {
+                "score": 2.0,
+                "adversary": [
+                    "PL12345",
+                    "PP54321"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "PL12345": {
+                "score": 3.5,
+                "adversary": [
+                    "AA56723",
+                    "KS34211"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "PP54321": {
+                "score": 1.5,
+                "adversary": [
+                    "KS34211",
+                    "AA56723"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "KS34211": {
+                "score": 4,
+                "adversary": [
+                    "PP54321",
+                    "PL12345"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 2
+            }
+        },
+        "Debut Tournoi": "12/06/2023 21:37:58:495297",
+        "Fin Tournoi": "12/06/2023 21:37:58:495297"
+    },
+    {
+        "Nom": "sda",
+        "Lieu": "dazdazd",
+        "Tours depart": 5,
+        "Joueurs": [
+            "AA56723",
+            "PL12345",
+            "PP54321",
+            "KS34211"
+        ],
+        "Debut": "oui",
+        "Gagnant": "KS34211",
+        "Rounds": {
+            "0": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "1": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "AA56723"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "2": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "KS34211",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "3": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "4": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "KS34211",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "5": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "6": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": "KS34211"
+            },
+            "7": {
+                "pairs": [
+                    [
+                        "KS34211",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            }
+        },
+        "Infos": {
+            "AA56723": {
+                "score": 5.0,
+                "adversary": [
+                    "PL12345",
+                    "KS34211",
+                    "PP54321"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "PL12345": {
+                "score": 2.0,
+                "adversary": [
+                    "AA56723",
+                    "PP54321"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "PP54321": {
+                "score": 2.5,
+                "adversary": [
+                    "KS34211",
+                    "PL12345",
+                    "AA56723"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 3
+            },
+            "KS34211": {
+                "score": 4.5,
+                "adversary": [
+                    "PP54321",
+                    "AA56723"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 2
+            }
+        },
+        "Debut Tournoi": "12/06/2023 21:38:04:719203",
+        "Fin Tournoi": "12/06/2023 21:38:04:719203"
+    },
+    {
+        "Nom": "sdq",
+        "Lieu": "fdf",
+        "Tours depart": 4,
+        "Joueurs": [
+            "AA56723",
+            "PL12345",
+            "PP54321",
+            "KS34211"
+        ],
+        "Debut": "oui",
+        "Gagnant": "PL12345",
+        "Rounds": {
+            "0": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ],
+                    [
+                        "PP54321",
+                        "KS34211"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "1": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "2": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "3": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "4": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "KS34211"
+                    ],
+                    [
+                        "PL12345",
+                        "PP54321"
+                    ]
+                ],
+                "wait_list": ""
+            },
+            "5": {
+                "pairs": [
+                    [
+                        "AA56723",
+                        "PL12345"
+                    ]
+                ],
+                "wait_list": ""
+            }
+        },
+        "Infos": {
+            "AA56723": {
+                "score": 3.5,
+                "adversary": [
+                    "PL12345",
+                    "KS34211"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "PL12345": {
+                "score": 4.0,
+                "adversary": [
+                    "AA56723",
+                    "PP54321"
+                ],
+                "eliminated": false,
+                "winner": true,
+                "rounds_played": 2
+            },
+            "PP54321": {
+                "score": 1.0,
+                "adversary": [
+                    "KS34211",
+                    "PL12345"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            },
+            "KS34211": {
+                "score": 2.5,
+                "adversary": [
+                    "PP54321",
+                    "AA56723"
+                ],
+                "eliminated": true,
+                "winner": false,
+                "rounds_played": 2
+            }
+        },
+        "Debut Tournoi": "12/06/2023 21:39:00:486913",
+        "Fin Tournoi": "12/06/2023 21:39:00:486913"
     }
 ]
