@@ -4,7 +4,7 @@ import os
 
 
 class Vues:
-    """TEST"""
+    """Classe Vues, gestion des culeurs et mise en page de Menu"""
 
     def __init__(self):
         self.reset = Style.RESET_ALL
@@ -67,16 +67,3 @@ class Vues:
 
     def clear_console(self):
         os.system("cls")
-
-
-# v = Vues()
-# v.header()
-# print(
-#     v.select_menu(
-#         {
-#             "1": "Creer un Tournois",
-#             "2": "Ajouter un Joueur",
-#             "3": "Generer un Rapport",
-#         }
-#     )
-# )

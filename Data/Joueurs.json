@@ -10,7 +10,9 @@
             "paris2023",
             "cazd",
             "sda",
-            "sdq"
+            "sdq",
+            "alex2",
+            "alex"
         ]
     },
     {
@@ -26,7 +28,9 @@
             "paris2023",
             "cazd",
             "sda",
-            "sdq"
+            "sdq",
+            "alex2",
+            "alex"
         ]
     },
     {
@@ -34,15 +38,18 @@
         "Prenom": "Alex",
         "Date naissance": "08/11/1991",
         "ID": "PP54321",
-        "Tournois Gagnee": 1,
+        "Tournois Gagnee": 2,
         "Liste Tournois Gagnee": [
-            "paris2023"
+            "paris2023",
+            "alex"
         ],
         "Liste Tournois Participe": [
             "paris2023",
             "cazd",
             "sda",
-            "sdq"
+            "sdq",
+            "alex2",
+            "alex"
         ]
     },
     {
@@ -50,16 +57,19 @@
         "Prenom": "Kat",
         "Date naissance": "03/04/1991",
         "ID": "KS34211",
-        "Tournois Gagnee": 2,
+        "Tournois Gagnee": 3,
         "Liste Tournois Gagnee": [
             "cazd",
-            "sda"
+            "sda",
+            "alex2"
         ],
         "Liste Tournois Participe": [
             "paris2023",
             "cazd",
             "sda",
-            "sdq"
+            "sdq",
+            "alex2",
+            "alex"
         ]
     },
     {
@@ -69,13 +79,27 @@
         "ID": "AZ12345",
         "Tournois Gagnee": 0,
         "Liste Tournois Gagnee": [],
-        "Liste Tournois Participe": []
+        "Liste Tournois Participe": [
+            "alex2",
+            "alex"
+        ]
     },
     {
         "Nom": "BBDAZ",
         "Prenom": "ddaz",
         "Date naissance": "01/23/4313",
         "ID": "LF12345",
+        "Tournois Gagnee": 0,
+        "Liste Tournois Gagnee": [],
+        "Liste Tournois Participe": [
+            "alex"
+        ]
+    },
+    {
+        "Nom": "Bernard",
+        "Prenom": "S",
+        "Date naissance": "09/12/3423",
+        "ID": "RV45673",
         "Tournois Gagnee": 0,
         "Liste Tournois Gagnee": [],
         "Liste Tournois Participe": []

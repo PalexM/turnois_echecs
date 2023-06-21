@@ -64,7 +64,6 @@ class Tournois:
         else:
             data.append(turnois)
 
-        # Écrire les données dans le fichier JSON
         Tournois._write_json_file(data)
 
     @staticmethod
@@ -75,109 +74,28 @@ class Tournois:
             if isinstance(element, dict):
                 if "Nom" in element and element["Nom"] == tournament_name:
                     return element
-
             else:
-                print("Elementul nu există")
+                print("Le tournois n'existe pas")
 
     @staticmethod
     def get_tournaments():
         data = Tournois._get_json_file()
         return data
+
     @staticmethod
     def update_tournament(tournament_name, tournament_data):
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
         data = Tournois._get_json_file()
 
         for i, element in enumerate(data):
-        # Parcourir la liste des éléments et vérifier si l'ID correspond
             if re.sub(r"[^a-zA-Z0-9]", "", element["Nom"]) == tournament_name:
-                element['Gagnant'] = tournament_data['winner']
-                element['Rounds'] = tournament_data['rounds']
-                element['Infos'] = tournament_data['infos']
-                element['Debut Tournoi'] = tournament_data['start_date']
-                element['Fin Tournoi'] = tournament_data['end_date']
-                element['Debut'] = 'oui'
-
+                element["Gagnant"] = tournament_data["winner"]
+                element["Rounds"] = tournament_data["rounds"]
+                element["Infos"] = tournament_data["infos"]
+                element["Debut Tournoi"] = tournament_data["start_date"]
+                element["Fin Tournoi"] = tournament_data["end_date"]
+                element["Debut"] = "oui"
 
                 # Ajouter l'élément mis à jour
                 break
-        print(data)
-        # Écrire les données dans le fichier JSON
         Tournois._write_json_file(data)
-
-
-# my_tournament = Tournois(
-#     "tournois12345",
-#     "Paris",
-#     ["toto", "tata"],
-#     {
-#         "Lorem": "Lorem ipsum dolor sit amet.",
-#         "Integer": "Integer accumsan dui.",
-#         "Pellentesque": "Pellentesque eget enim ut nibh.",
-#         "Vestibulum": "Vestibulum sagittis tellus.",
-#         "Fusce": "Fusce eu lectus id ante.",
-#         "Cras": "Cras semper enim a ex venenatis.",
-#         "Aliquam": "Aliquam erat volutpat.",
-#         "Maecenas": "Maecenas auctor turpis.",
-#         "Morbi": "Morbi euismod nisl.",
-#         "Nulla": "Nulla eu tellus efficitur.",
-#     },
-#     6,
-# )
-# my_tournament.add_tournament()
-# print(my_tournament)
-# my_tournament.add_tournament()
-
-# print(my_tournament.get_tournament("tournois1"))
-
-
-    #   "Nom": "tournois qsd q qsd d qzdds ",
-    #     "Lieu": "Paris",
-    #     "Date debut": "2023-05-01",
-    #     "Date fin": "2023-05-08",
-    #     "Tours depart": 6,
-    #     "Tour Actuel": 0,
-    #     "Joueurs": [
-    #         "toto",
-    #         "tata"
-    #     ],
-    #     "Debut": "non",
-    #     "Informations turnois": {
-    #         "Lorem": "Lorem ipsum dolor sit amet.",
-    #         "Integer": "Integer accumsan dui.",
-    #         "Pellentesque": "Pellentesque eget enim ut nibh.",
-    #         "Vestibulum": "Vestibulum sagittis tellus.",
-    #         "Fusce": "Fusce eu lectus id ante.",
-    #         "Cras": "Cras semper enim a ex venenatis.",
-    #         "Aliquam": "Aliquam erat volutpat.",
-    #         "Maecenas": "Maecenas auctor turpis.",
-    #         "Morbi": "Morbi euismod nisl.",
-    #         "Nulla": "Nulla eu tellus efficitur."
-    #     }
-
-
-# Tournois.update_tournament(
-#     "tournois qsd q qsd d qzdds ",
-#     {
-#         "Nom": "tournois1",
-#         "Lieu": "Paris",
-#         "Date debut": "2023-05-01",
-#         "Date fin": "2023-05-08",
-#         "Tours depart": 6,
-#         "Tour Actuel": 1,
-#         "Joueurs": ["toto", "tata"],
-#         "Informations turnois": {
-#             "Lorem": "Lorem ipsum dolor sit amet.",
-#             "Integer": "Integer accumsan dui.",
-#             "Pellentesque": "Pellentesque eget enim ut nibh.",
-#             "Vestibulum": "Vestibulum sagittis tellus.",
-#             "Fusce": "Fusce eu lectus id ante.",
-#             "Cras": "Cras semper enim a ex venenatis.",
-#             "Aliquam": "Aliquam erat volutpat.",
-#             "Maecenas": "Maecenas auctor turpis.",
-#             "Morbi": "Morbi euismod nisl.",
-#             "Nulla": "Nulla eu tellus efficitur.",
-#         },
-#     },
-# )
-# # 

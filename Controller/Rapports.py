@@ -1,24 +1,15 @@
+from Model.Joueurs import Joueurs
+from Model.Tournois import Tournois as Turnois_Model
+from Vue.Vues import Vues
 import os
 import sys
 
 sys.path.append("..")
-from Model.Joueurs import Joueurs
-from Model.Tournois import Tournois as Turnois_Model
-from Vue.Vues import Vues
-
-from Model.Joueurs import Joueurs
-
-
-# RAPPORTS
-# Nous aimerions pouvoir afficher les rapports suivants dans le programme :
-# ● liste de tous les joueurs par ordre alphabétique ;
-# ● liste de tous les tournois ;
-# ● nom et dates d’un tournoi donné ;
-# ● liste des joueurs du tournoi par ordre alphabétique ;
-# ● liste de tous les tours du tournoi et de tous les matchs du tour.
 
 
 class Rapports:
+    """Classe Rapports, gestion et creation des rapports"""
+
     def __init__(self):
         self.vue = Vues()
         # Obtention du chemin relatif vers le répertoire "Repports"

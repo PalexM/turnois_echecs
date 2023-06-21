@@ -1,9 +1,5 @@
 import os
 import json
-import os
-
-# from ..Vue.Vues import Vues
-# # nom dossir , nom de fichier, nom de la classe
 
 
 class Joueurs:
@@ -59,14 +55,12 @@ class Joueurs:
         else:
             data.append(joueur)
 
-        # Écrire les données dans le fichier JSON
         Joueurs._write_json_file(data)
 
     def get_player(self, id):
         """Récupérer les informations d'un joueur, returne le joueur ou KeyError exception"""
         data = Joueurs._get_json_file()
         for el in data:
-            # Parcourir la liste des éléments et vérifier si l'ID correspond
             if el["ID"] == id:
                 return el
             else:
@@ -82,9 +76,7 @@ class Joueurs:
         """Mettre à jour les informations d'un joueur ou returne une exception KeyError"""
         data = Joueurs._get_json_file()
         for element in data:
-            # Parcourir la liste des éléments et vérifier si l'ID correspond
             if element["ID"] == id:
-                # Si l'ID correspond, supprimer l'élément correspondant
                 if score < 1:
                     element["Tournois Gagnee"] += score
                     element["Liste Tournois Participe"].append(tournmanent_name)
@@ -95,18 +87,4 @@ class Joueurs:
                 # Ajouter l'élément mis à jour
                 break
 
-        # Écrire les données dans le fichier JSON
         Joueurs._write_json_file(data)
-
-
-# if __name__ == "__main__":
-#     # Exemple d'utilisation de la classe Joueurs
-#     player = Joueurs("Pop", "Alexandru", "08/11/1991", "AB5454ada")
-
-#     update_inf = {
-#         "Nom": "Alexandru",
-#         "Prenom": "Pop",
-#         "Date naissance": "08/11/1991",
-#         "ID": "AB5454a",
-#     }
-#     player.get_players()

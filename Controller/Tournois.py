@@ -1,21 +1,15 @@
-from datetime import datetime
+from Model.Joueurs import Joueurs
+from Model.Tournois import Tournois as Tournois_Model
+from .Matchs import Match
+from Vue.Vues import Vues
 import sys
 
 sys.path.append("..")
-from Model.Joueurs import Joueurs
-from Model.Tournois import Tournois as Tournois_Model
-from Matchs import Match
-from Vue.Vues import Vues
-
-# def __init__(self, name, place, players, rounds=4, start_tournament=False):
-#     self.name = name
-#     self.place = place
-#     self.rounds = rounds
-#     self.players = players
-#     self.start_tournament = start_tournament
 
 
 class Tournois:
+    """Classe Tournois, gestion et creation des turnois"""
+
     def __init__(self):
         self.vue = Vues()
 
@@ -93,7 +87,6 @@ class Tournois:
         players = dict(player for player in results.get("infos").items())
         for player in players.items():
             if player[1].get("winner"):
-                winner = player[0]
                 Joueurs.update_player(player[0], 1, results["tournament_name"])
             else:
                 Joueurs.update_player(player[0], 0, results["tournament_name"])
@@ -157,37 +150,3 @@ class Tournois:
                 option += f" {self.vue.color_yellow(str(index))}) {self.vue.color_blue(element)}      "
         option += " \n\n"
         print(option)
-
-
-# turneu = Tournois(
-#     "paris_2023",
-#     [
-#         "Alice",
-#         "Bob",
-#         "Charlie",
-#         "Dave",
-# "Eve",
-# "Frank",
-# "Grace",
-# "Heidi",
-# "Ivan",
-# "Judy",
-# "Kevin",
-# "Linda",
-# "Mike",
-# "Nancy",
-# "Oscar",
-# "Patty",
-# "Quentin",
-# "Randy",
-# "Sarah",
-# "Tom",
-# "Dan",
-#     ],
-# )
-# turneu.play_tournament()
-# print(f"date debut : {turneu.start_time}\n")
-# print(f"date fin : {turneu.end_time} \n")
-# print(f"Tours: {turneu.rounds} \n")
-# print(turneu.player_inf)
-# turneu.list_players_for_tournament()

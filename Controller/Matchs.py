@@ -1,12 +1,10 @@
 import random
 from datetime import datetime
-import sys
-
-sys.path.append("..")
-from Model.Joueurs import Joueurs
 
 
 class Match:
+    """Class Matchs, gestion des matchs du turnois"""
+
     def __init__(self, tournament_name, players, minumum_rounds=4):
         self.tournament_name = tournament_name
         self.players = players
@@ -112,7 +110,7 @@ class Match:
                     # Si le paramètre est le statut de vainqueur ou éliminé, on le met à jour
                     elif param == "winner" or param == "eliminated":
                         self.player_inf[key][param] = val[param]
-                    # Si le paramètre est les adversaires, on ajoute le nouvel adversaire à la liste
+                    # Si le paramètre est le adversaire, on ajoute le nouvel adversaire à la liste
                     elif param == "adversary":
                         self.player_inf[key][param].append(val[param])
 
@@ -162,8 +160,8 @@ class Match:
         for w in winner:
             player[w] = {"score": 1, "winner": True}
             self.winner_is = w
-        for l in loser:
-            player[l] = {"score": 0, "eliminated": True}
+        for los in loser:
+            player[los] = {"score": 0, "eliminated": True}
         self.update_player_infos(player)
         self.end_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f")
 
@@ -181,37 +179,3 @@ class Match:
                     }
                 else:
                     self.pairs_generation()
-
-
-turneu = Match(
-    "paris_2023",
-    [
-        "Alice",
-        "Bob",
-        "Charlie",
-        "Dave",
-        # "Eve",
-        # "Frank",
-        # "Grace",
-        # "Heidi",
-        # "Ivan",
-        # "Judy",
-        # "Kevin",
-        # "Linda",
-        # "Mike",
-        # "Nancy",
-        # "Oscar",
-        # "Patty",
-        # "Quentin",
-        # "Randy",
-        # "Sarah",
-        # "Tom",
-        # "Dan",
-    ],
-)
-# turneu.play_tournament()
-# print(f"date debut : {turneu.start_time}\n")
-# print(f"date fin : {turneu.end_time} \n")
-# print(f"Tours: {turneu.rounds} \n")
-# print(turneu.player_inf)
-# turneu.list_players_for_tournament()

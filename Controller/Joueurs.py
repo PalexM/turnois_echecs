@@ -1,19 +1,21 @@
+from Model.Joueurs import Joueurs as Joueurs_Model
+from Vue.Vues import Vues
 import sys
 import re
 
 sys.path.append("..")
-from Model.Joueurs import Joueurs as Joueurs_Model
-from Vue.Vues import Vues
 
 
 class Joueurs:
+    """Class Joueurs, gestion des joueurs"""
+
     def __init__(self) -> None:
         self.vue = Vues()
 
     def list_players(self):
         players = Joueurs_Model.get_players()
         players = [
-            f"{player.get('Nom')} {player.get('Prenom')} ID : {player.get('ID')}"
+            f"{player.get('Nom')} {player.get('Prenom')} ID:{player.get('ID')}"
             for player in players
         ]
         return players
@@ -37,7 +39,7 @@ class Joueurs:
         try:
             new_player = Joueurs_Model(first_name, last_name, birth_date, id)
             new_player.add_player()
-            print(self.vue.color_green("\n   Le joueur a été ajouté avec succès   \n"))
+            print(self.vue.color_green("\nLe joueur a été ajouté avec succès"))
         except ValueError as e:
             print("Erreur:", self.vue.color_red(str(e)))
 

@@ -1,14 +1,15 @@
-import sys
-
-sys.path.append("..")
 from Vue.Vues import Vues
 from Controller.Tournois import Tournois as Turnois_Controller
 from Controller.Joueurs import Joueurs
 from Controller.Rapports import Rapports
+import sys
+
+sys.path.append("..")
 
 
 class Menu:
     def __init__(self) -> None:
+        """Class Menu, gestion du menu"""
         self.vue = Vues()
         self.main_menu = {
             "1": "Creer un Tournois",
@@ -65,10 +66,3 @@ class Menu:
                 option += f" {self.vue.color_yellow(str(index))}){self.vue.color_blue(element)}      "
         option += " \n\n"
         print(option)
-
-
-if __name__ == "__main__":
-    # Exemple d'utilisation de la classe Joueurs
-    menu = Menu()
-    menu.display_menu()
-    menu.main_menu_interaction()
