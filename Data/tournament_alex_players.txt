@@ -1,8 +1,0 @@
-Liste Joueurs pour tournois alex
-
-    AA56723
-    PL12345
-    PP54321
-    KS34211
-    AZ12345
-    LF12345

@@ -33,3 +33,9 @@ ou
 'py main.py'
 Suivez ensuite le menu interactif pour utiliser l'application.
 
+
+## Generer un Report FLAKE
+
+Pour generer un raport , utilisez la commande suivante :
+'flake8 --format=html --htmldir=flake-report'
+

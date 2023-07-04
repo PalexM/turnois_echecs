@@ -1,0 +1,63 @@
+Informations Tournois lundi0307 
+
+    Tour : 0
+        Paires : PL12345 et AA34652
+        Paires : PP54321 et AZ12345
+        Liste d'attente : AA56723
+    Tour : 1
+        Paires : AA34652 et AZ12345
+        Paires : PL12345 et AA56723
+        Liste d'attente : PP54321
+    Tour : 2
+        Paires : AZ12345 et AA34652
+        Liste d'attente : AA56723
+    Tour : 3
+        Paires : AZ12345 et AA34652
+        Paires : PL12345 et AA56723
+        Liste d'attente : PP54321
+    Tour : 4
+        Paires : AZ12345 et PL12345
+        Paires : AA34652 et AA56723
+        Liste d'attente : PP54321
+    Tour : 5
+        Paires : AZ12345 et AA56723
+        Liste d'attente : PP54321
+    Tour : 6
+        Paires : AZ12345 et PP54321
+    Tour : 7
+        Paires : AZ12345 et PP54321
+
+    Joueur : PL12345:
+        Score : 1.5
+        Adversaires : ['AA34652', 'AA56723', 'PP54321', 'AZ12345']
+        Elimine : oui
+        Gagnant : non
+        Tours Joue : 4
+
+    Joueur : AA34652:
+        Score : 1.5
+        Adversaires : ['PL12345', 'AZ12345', 'AA56723']
+        Elimine : oui
+        Gagnant : non
+        Tours Joue : 3
+
+    Joueur : AA56723:
+        Score : 1.5
+        Adversaires : ['PL12345', 'AA34652', 'AZ12345']
+        Elimine : oui
+        Gagnant : non
+        Tours Joue : 3
+
+    Joueur : PP54321:
+        Score : 2.0
+        Adversaires : ['AZ12345', 'PL12345']
+        Elimine : non
+        Gagnant : oui
+        Tours Joue : 2
+
+    Joueur : AZ12345:
+        Score : 5.5
+        Adversaires : ['PP54321', 'AA34652', 'PL12345', 'AA56723']
+        Elimine : oui
+        Gagnant : non
+        Tours Joue : 4

@@ -3,7 +3,7 @@ import json
 
 
 class Joueurs:
-    """Class Joueurs, Methodes principales: Ajouter un nouveau joueur, Récupérer les informations d'un joueur, Mettre à jour les informations d'un joueur"""
+    """Class Joueurs, Methodes principales: Ajouter un nouveau joueur, Récupérer les informations d'un joueur"""
 
     # Obtention du chemin relatif vers le répertoire "Data"
     data_folder = os.path.abspath(

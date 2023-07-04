@@ -73,7 +73,6 @@ class Rapports:
 ----------------------------------------
 Tournois {selected}
 ----------------------------------------
-    
     Date Debut {tournament['Debut Tournoi']}
     Date Fin {tournament['Fin Tournoi']}
     """
@@ -128,9 +127,7 @@ Tournois {selected}
         print(f"\n\n \t\t\t {self.vue.color_yellow(title)}       \n\n ")
         option = ""
         for index, element in enumerate(options):
-            while (
-                len(element) <= 20
-            ):  #  égalisation des longueurs de texte pour l'esthétique et la mise en page
+            while len(element) <= 20:
                 element += " "
 
             if index % 5 == 4:  # creer 5 colones pour la mise en page

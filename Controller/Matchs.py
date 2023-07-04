@@ -141,7 +141,6 @@ class Match:
     def prepare_players_infos(self, winners, losers, nulls):
         player = {}
 
-        # Les gagnants ont un score de 1, les perdants sont éliminés et ont un score de 0,  les nulls ont un score de 0,5
         for winner in winners:
             player[winner] = {"score": 1}
         for loser in losers:
@@ -156,7 +155,6 @@ class Match:
 
     def design_winner(self, winner, loser):
         player = {}
-        # Les gagnants ont un score de 1, les perdants sont éliminés et ont un score de 0,  les nulls ont un score de 0,5
         for w in winner:
             player[w] = {"score": 1, "winner": True}
             self.winner_is = w

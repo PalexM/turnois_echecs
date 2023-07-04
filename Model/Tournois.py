@@ -4,7 +4,7 @@ import re
 
 
 class Tournois:
-    """A Class Tournois, Methodes principales: Creer un tournois, Récupérer les informations d'un tournois, Mettre à jour les informations d'un tournois"""
+    """A Class Tournois, Methodes principales: Creer un tournois, Récupérer les informations d'un tournois"""
 
     # Obtention du chemin relatif vers le répertoire "Data"
     data_folder = os.path.abspath(
